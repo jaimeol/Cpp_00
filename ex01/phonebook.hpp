@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.hpp                                          :+:      :+:    :+:   */
+/*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/11 11:57:51 by jolivare          #+#    #+#             */
-/*   Updated: 2024/05/11 13:42:07 by jolivare         ###   ########.fr       */
+/*   Created: 2024/05/11 13:58:41 by jolivare          #+#    #+#             */
+/*   Updated: 2024/05/11 14:04:48 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_HPP
-# define UTILS_HPP
-# include <iostream>
-# include "contacts.hpp"
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
+#include "contacts.hpp"
+#include "utils.hpp"
 
-std::string	add_spaces(int n);
-
-std::string	fix_format(std::string str, long unsigned max);
-
-int	search_ui(Contact contacts[8]);
+class Phonebook
+{
+    private:
+        Contact _contacts[8];
+        int     _i;
+    public:
+        Phonebook(void);
+        ~Phonebook(void);
+        void    add(void);
+        void    search(void);
+        void    print(Contact contact);
+        Contact get_contact(int i);
+};
 
 #endif

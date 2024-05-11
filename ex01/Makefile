@@ -6,17 +6,17 @@
 #    By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/11 11:48:34 by jolivare          #+#    #+#              #
-#    Updated: 2024/05/11 11:57:49 by jolivare         ###   ########.fr        #
+#    Updated: 2024/05/11 14:50:41 by jolivare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = utils.cpp
+SRC = utils.cpp contacts.cpp phonebook.cpp main.cpp
 OBJECTS = $(SRC:.cpp=.o)
 CC = g++
 RM = rm -f
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = 
+NAME = Phonebook
 
 all: $(NAME)
 	

@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/11 11:57:51 by jolivare          #+#    #+#             */
-/*   Updated: 2024/05/11 13:42:07 by jolivare         ###   ########.fr       */
+/*   Created: 2024/05/11 14:45:48 by jolivare          #+#    #+#             */
+/*   Updated: 2024/05/11 14:57:43 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_HPP
-# define UTILS_HPP
-# include <iostream>
-# include "contacts.hpp"
+#include "phonebook.hpp"
 
-std::string	add_spaces(int n);
+int main(void)
+{
+    Phonebook	ph1;
+    std::string str;
 
-std::string	fix_format(std::string str, long unsigned max);
-
-int	search_ui(Contact contacts[8]);
-
-#endif
+	while (str != "EXIT" || str != "Exit")
+	{
+		std::cout << "Enter a command > ";
+		std::getline(std::cin, str);
+		if (str == "ADD" || str == "add")
+			ph1.add();
+		else if (str == "SEARCH" || str == "search")
+			ph1.search();
+		if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			return (0);
+		}
+	}
+	return (0);
+}
