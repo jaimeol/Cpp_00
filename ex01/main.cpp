@@ -6,7 +6,7 @@
 /*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 14:45:48 by jolivare          #+#    #+#             */
-/*   Updated: 2024/05/11 14:57:43 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/05/11 19:08:52 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main(void)
     Phonebook	ph1;
     std::string str;
 
-	while (str != "EXIT" || str != "Exit")
+	while (1)
 	{
 		std::cout << "Enter a command > ";
 		std::getline(std::cin, str);
@@ -25,6 +25,8 @@ int main(void)
 			ph1.add();
 		else if (str == "SEARCH" || str == "search")
 			ph1.search();
+		else if (str == "EXIT" || str == "exit")
+			break ;
 		if (std::cin.eof())
 		{
 			std::cout << std::endl;
