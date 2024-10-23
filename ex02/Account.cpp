@@ -6,13 +6,14 @@
 /*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:53:17 by jolivare          #+#    #+#             */
-/*   Updated: 2024/05/13 12:51:18 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/10/23 12:39:07 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <iostream>
 #include <iomanip>
+#include <ctime>
 
 int Account::_nbAccounts = 0;
 int	Account::_totalNbWithdrawals = 0;
@@ -67,10 +68,16 @@ int Account::checkAmount(void) const
 
 void Account::_displayTimestamp(void)
 {
-	time_t	now;
+	time_t now = std::time(NULL);
+	struct tm timenow = *std::localtime(&now);
 
-	now = time(NULL);
-	std::cout << std::put_time(localtime(&now), "[%Y%m%d_%H%M%S] ");
+	std::cout << "[" << timenow.tm_year + 1900 <<
+	std::setfill('0') << std::setw(2) << timenow.tm_mon + 1 <<
+	std::setfill('0') << std::setw(2) << timenow.tm_mday << "_" <<
+	std::setfill('0') << std::setw(2) << timenow.tm_hour <<
+	std::setfill('0') << std::setw(2) << timenow.tm_min <<
+	std::setfill('0') << std::setw(2) << timenow.tm_sec <<
+	"] ";
 }
 
 void Account::displayAccountsInfos(void)
