@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jolivare < jolivare@student.42mad.com>     +#+  +:+       +#+        */
+/*   By: jolivare <jolivare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:53:17 by jolivare          #+#    #+#             */
-/*   Updated: 2024/10/23 12:39:07 by jolivare         ###   ########.fr       */
+/*   Updated: 2024/11/20 17:23:50 by jolivare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Account::Account(int initial_deposit)
 Account::~Account()
 {
 	Account::_displayTimestamp();
-	std::cout << "Index:" << this->_accountIndex << ";ammount:" << this->checkAmount();
+	std::cout << "index:" << this->_accountIndex << ";amount:" << this->checkAmount();
 	std::cout << ";closed" << std::endl;
 	Account::_nbAccounts--;
 }
@@ -83,7 +83,7 @@ void Account::_displayTimestamp(void)
 void Account::displayAccountsInfos(void)
 {
 	Account::_displayTimestamp();
-	std::cout << "accounts:" << Account::getNbAccounts() << ";total" << Account::getTotalAmount();
+	std::cout << "accounts:" << Account::getNbAccounts() << ";total:" << Account::getTotalAmount();
 	std::cout << ";deposits:" << Account::getNbDeposits() << ";withdrawals:" << Account::getNbWithdrawals() << std::endl;
 }
 
@@ -108,7 +108,7 @@ void Account::makeDeposit(int deposit)
 bool Account::makeWithdrawal(int withdrawal)
 {
 	Account::_displayTimestamp();
-	std::cout << "Index:" << this->_accountIndex << ";p_amount:" << this->_amount << ";withdrawal:";
+	std::cout << "index:" << this->_accountIndex << ";p_amount:" << this->_amount << ";withdrawal:";
 	if (withdrawal > this->checkAmount())
 	{
 		std::cout << "refused" << std::endl;
